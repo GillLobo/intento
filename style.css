@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background: #f3f6fa;
+    color: #1a1a1a;
+}
+
+/* ========================= CONTAINER PRINCIPAL ========================= */
+
+.container{
+    width: 800px;
+    height: 500px;
+    display: flex;
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* ========================= FORMULARIO LOGIN ========================= */
+
+.container-form{
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-form h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.social-networks{
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.social-networks ion-icon{
+    border: 1px solid #c9cacc;
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.container-form span{
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.container-input{
+    width: 300px;
+    height: 40px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0 15px;
+    background-color: #eeeeeea8;
+    border-radius: 6px;
+}
+
+.container-input input{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+}
+
+.container-form a{
+    color: black;
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+button{
+    width: 170px;
+    height: 45px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3AB397;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: #2e9c83;
+    transform: scale(1.05);
+}
+
+/* ========================= ICONO MOSTRAR CONTRASEÑA ========================= */
+
+#togglePassword {
+    color: #888; /* gris por defecto */
+    transition: 0.2s;
+}
+
+#togglePassword.active {
+    color: #1a73e8; /* azul Google */
+}
+
+
+/* ========================= PANEL DE BIENVENIDA ========================= */
+
+.container-welcome{
+    width: 50%;
+    height: 100%;
+    background-color: #1A2E40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 0 15px 15px 0;
+}
+
+.container-welcome h3{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.container-welcome p{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+    justify-content: right;
+    align-items: right;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================= ALERTAS ========================= */
+
+.alert {
+    width: 400px;
+    height: 40px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 8px;
+    padding: 0 15px;
+    border-radius: 6px;
+}
+
+.alert-success {
+    color: #28a745
+}
+
+.alert-error {
+    color:#dc3545; ;
+}
+
+/* ========================= PANTALLA DE PROFESORES ========================= */
+
+.container-profesor{
+    width: 800px;
+    height: 500px;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* ========================= BOTÓN CONFIGURACIÓN USUARIOS ========================= */
+
+.confi_usu{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0 18px;
+    width: 170px;
+    height: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #a1a6c0 0%, #cdb8ff 100%);
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(34, 40, 49, 0.12), inset 0 1px 0 rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+    text-align: center;
+    outline: none;
+}
+
+.confi_usu:hover{
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 22px rgba(34,40,49,0.16);
+    filter: brightness(1.03);
+}
+
+.confi_usu:active{
+    transform: translateY(0) scale(0.99);
+    box-shadow: 0 6px 14px rgba(34,40,49,0.12);
+}
+
+.confi_usu:focus{
+    box-shadow: 0 0 0 4px rgba(173,146,255,0.18);
+}
+/* ===== CREAR USUARIOS ===== */
+
+/* Contenedor centrado */
+.form-wrapper {
+    width: 800px;
+    max-width: 480px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e3e8ef;
+}
+
+.form-wrapper h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0a2e6d;
+    font-weight: 600;
+}
+
+/* ===== Inputs ===== */
+.user-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #1f3b73;
+    font-size: 14px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #cfd8e3;
+    background: #f9fbfd;
+    font-size: 15px;
+    transition: all .25s ease;
+}
+
+.input:focus {
+    border-color: #4a8bff;
+    box-shadow: 0 0 0 3px rgba(74, 139, 255, 0.25);
+    background: #ffffff;
+}
+
+/* ===== Botones ===== */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #0d6efd;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background .25s ease;
+}
+
+.btn-submit:hover {
+    background: #0a58ca;
+}
+
+.btn-cancel {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 12px;
+    background: #e8eef5;
+    color: #0a2e6d;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .25s ease;
+}
+
+.btn-cancel:hover {
+    background: #d6e0ec;
+}
+
+/* ===== Alertas ===== */
+.alert-error {
+    background: #ffe1e1;
+    color: #a30000;
+    padding: 14px;
+    border-left: 4px solid #ff4d4d;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.alert-error p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* ===== Asignar Materias ===== */
+.option-card {
+    transition: 0.2s ease;
+    border-radius: 12px;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+}
+
+.icon {
+    font-size: 55px;
+}

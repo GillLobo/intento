@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postgrados UJGH - Decanato de Investigación y Postgrado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables de color - Tema azul, negro y azul oscuro */
+        :root {
+            --azul-oscuro: #001f3f;
+            --azul-medio: #003366;
+            --azul-primario: #00509e;
+            --azul-accent: #0074D9;
+            --azul-claro: #7FDBFF;
+            --negro: #111111;
+            --gris-oscuro: #222222;
+            --gris-medio: #444444;
+            --gris-claro: #f5f5f5;
+            --blanco: #ffffff;
+            --dorado: #FFD700;
+        }
+        
+        /* Reset y estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--gris-claro) 0%, #e8f4ff 100%);
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+        }
+        
+        /* Header y navegación */
+        .header {
+            background: linear-gradient(135deg, var(--negro) 0%, var(--azul-oscuro) 100%);
+            color: var(--blanco);
+            padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--azul-primario), var(--azul-accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 80, 158, 0.4);
+        }
+        
+        .logo-icon span {
+            color: var(--blanco);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, var(--azul-claro), var(--blanco));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            color: #cccccc;
+        }
+        
+        /* Botón Acceder */
+        .btn-acceder {
+            background: linear-gradient(135deg, var(--azul-primario), var(--azul-accent));
+            color: var(--blanco);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 80, 158, 0.3);
+        }
+        
+        .btn-acceder:hover {
+            background: linear-gradient(135deg, var(--azul-accent), var(--azul-primario));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 80, 158, 0.5);
+        }
+        
+        /* Sección Hero */
+        .hero {
+            background: linear-gradient(rgba(0, 31, 63, 0.9), rgba(0, 20, 40, 0.95)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--blanco);
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+        
+        /* Contenedor de visión y misión */
+        .vision-mision-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .vision-card, .mision-card {
+            background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio));
+            color: var(--blanco);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .vision-card:hover, .mision-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--azul-claro);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-title i {
+            color: var(--dorado);
+        }
+        
+        /* Sección de información */
+        .info-section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--azul-oscuro);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gris-medio);
+            margin-top: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(to right, var(--azul-primario), var(--azul-accent));
+            border-radius: 2px;
+        }
+        
+        /* Descripción del Decanato */
+        .decanato-desc {
+            background: linear-gradient(135deg, var(--azul-medio), var(--azul-oscuro));
+            color: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid var(--azul-claro);
+        }
+        
+        .decanato-desc h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--azul-claro);
+        }
+        
+        /* Objetivos */
+        .objetivos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .objetivo-card {
+            background: var(--blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--azul-primario);
+        }
+        
+        .objetivo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .objetivo-number {
+            background: linear-gradient(135deg, var(--azul-primario), var(--azul-accent));
+            color: var(--blanco);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 80, 158, 0.3);
+        }
+        
+        .objetivo-content {
+            padding: 0 20px 25px;
+        }
+        
+        /* Tarjetas de postgrados SIMPLIFICADAS */
+        .postgrados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .postgrado-card {
+            background: var(--blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .postgrado-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-color: var(--azul-primario);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-primario));
+            color: var(--blanco);
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-header h4 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        /* Contactos */
+        .contactos-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .contacto-card {
+            background: linear-gradient(135deg, var(--blanco), #f8faff);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--azul-primario);
+        }
+        
+        .contacto-card h4 {
+            color: var(--azul-oscuro);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contacto-card h4 i {
+            color: var(--azul-primario);
+        }
+        
+        .contacto-info {
+            list-style-type: none;
+        }
+        
+        .contacto-info li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contacto-info li:last-child {
+            border-bottom: none;
+        }
+        
+        .contacto-info i {
+            color: var(--azul-primario);
+            margin-right: 15px;
+            margin-top: 3px;
+            width: 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--negro), var(--azul-oscuro));
+            color: var(--blanco);
+            padding: 60px 20px 20px;
+            margin-top: 60px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .vision-mision-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
+            }
+            
+            .hero {
+                padding: 70px 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h3 {
+                font-size: 2rem;
+            }
+            
+            .postgrados-grid, .objetivos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .decanato-desc, .vision-card, .mision-card {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h3 {
+                font-size: 1.8rem;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <span>UJGH</span>
+                </div>
+                <div class="logo-text">
+                    <h1>Decanato de Investigación y Postgrado</h1>
+                    <p>Universidad Dr. José Gregorio Hernández</p>
+                </div>
+            </div>
+            
+            <a href="login.php" class="btn-acceder">
+                <i class="fas fa-sign-in-alt"></i> Acceder al Sistema
+            </a>
+        </div>
+    </header>
+    
+    <!-- Sección principal -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Excelencia en Investigación y Formación de Postgrado</h2>
+            <p>Generar proyectos que contribuyan de manera eficiente a dar respuesta a los ingentes problemas sociales y contribuir con los mismos al desarrollo económico social del Estado y el país.</p>
+        </div>
+    </section>
+    
+    <!-- Visión y Misión -->
+    <div class="vision-mision-container">
+        <div class="vision-card">
+            <div class="card-title">
+                <i class="fas fa-eye"></i>
+                <span>Visión</span>
+            </div>
+            <p>La División de Investigación y Postgrado de la Universidad Dr. José Gregorio Hernández, es una dependencia que inscribe su Visión dentro de la interdisciplinariedad de los saberes humanísticos, académicos, científicos y tecnológicos, pluralistas, críticos, autónomos y éticos al servicio de la sociedad regional, nacional e internacional en el contexto de la contemporaneidad; a fin de formar profesionales especialistas y generadores de conocimientos capaces de enfrentar los retos del futuro con idoneidad, actitud crítica, deliberante y comprometida, para fortalecer nuevos valores de eticidad, de convivencia y de interculturalidad, por lo cual se buscará llegar a ser líder en la formación de este recursos humanos con alto nivel de excelencia académica y de responsabilidad social, que contribuyan al mejoramiento de la calidad de vida, todo esto mediante la utilización de las herramientas más innovadoras del mercado educativo.</p>
+        </div>
+        
+        <div class="mision-card">
+            <div class="card-title">
+                <i class="fas fa-bullseye"></i>
+                <span>Misión</span>
+            </div>
+            <p>Formar profesionales especialistas e investigadores al más alto nivel de enseñanza, investigación y proyección social; conducentes a la obtención de los grados académicos de Especialista, Magíster y Doctor, como también segunda especialización, dentro de un marco de excelencia académica y científica. De esta manera, se propone contribuir al desarrollo humanístico, científico y tecnológico en el ámbito nacional e internacional. Esto se logrará con el concurso de un equipo docente de sólida preparación académica, recursos bibliográficos actualizados, metodologías de avanzada y tecnología de punta, que permiten la innovación y creación de nuevos conocimientos al servicio del entorno local, nacional y mundial.</p>
+        </div>
+    </div>
+    
+    <!-- Sección de información -->
+    <div class="info-section">
+        <div class="decanato-desc">
+            <h3>Decanato de Investigación y Postgrado</h3>
+            <p>Generar proyectos que contribuyan de manera eficiente a dar respuesta a los ingentes problemas sociales y contribuir con los mismos al desarrollo económico social del Estado y el país.</p>
+        </div>
+        
+        <div class="section-title">
+            <h3>Nuestros Objetivos</h3>
+            <p>Comprometidos con la excelencia académica y el desarrollo social</p>
+        </div>
+        
+        <div class="objetivos-grid">
+            <div class="objetivo-card">
+                <div class="objetivo-number">01</div>
+                <div class="objetivo-content">
+                    <h4>Formación de Profesionales</h4>
+                    <p>Formar profesionales de cuarto nivel con competencias y destrezas que le permitan desempeñarse de manera exitosa en los diferentes campos de la región y la nación.</p>
+                </div>
+            </div>
+            
+            <div class="objetivo-card">
+                <div class="objetivo-number">02</div>
+                <div class="objetivo-content">
+                    <h4>Promoción de Programas</h4>
+                    <p>Promover programas de postgrados que contribuyan al desarrollo integral de la región y del país, los cuales respondan a las demandas de la sociedad.</p>
+                </div>
+            </div>
+            
+            <div class="objetivo-card">
+                <div class="objetivo-number">03</div>
+                <div class="objetivo-content">
+                    <h4>Investigación Técnica y Científica</h4>
+                    <p>Incrementar progresiva y continuamente la actividad de investigación técnica y científica del postgrado, a fin de contribuir con el crecimiento, progreso, desarrollo integral y armónico del entorno institucional.</p>
+                </div>
+            </div>
+            
+            <div class="objetivo-card">
+                <div class="objetivo-number">04</div>
+                <div class="objetivo-content">
+                    <h4>Escenario de Discusión</h4>
+                    <p>Construir en la Universidad un escenario de discusión que permita articular y desarticular los saberes y que sirvan de puente entre la especificidad y el quehacer de las diferentes prácticas del conocimiento.</p>
+                </div>
+            </div>
+            
+            <div class="objetivo-card">
+                <div class="objetivo-number">05</div>
+                <div class="objetivo-content">
+                    <h4>Generación de Conocimientos</h4>
+                    <p>Generar conocimientos en las áreas científicas, humanísticas y tecnológicas que contribuyan a impulsar el desarrollo en la región y el país.</p>
+                </div>
+            </div>
+            
+            <div class="objetivo-card">
+                <div class="objetivo-number">06</div>
+                <div class="objetivo-content">
+                    <h4>Vínculos Investigación-Postgrado</h4>
+                    <p>Establecer vínculos entre las actividades de investigación y el postgrado de manera de fortalecer la academia y contribuir con tales experiencias al desarrollo de novedosas propuestas para ambas direcciones.</p>
+                </div>
+            </div>
+            
+            <div class="objetivo-card">
+                <div class="objetivo-number">07</div>
+                <div class="objetivo-content">
+                    <h4>Actividades Investigativas</h4>
+                    <p>Desarrollar las actividades investigativas en los distintos saberes, acordes con las necesidades de la región y del país, sustentada en las líneas de investigación de nuestra universidad.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title" id="postgrados">
+            <h3>Nuestros Programas de Postgrado</h3>
+            <p>Oferta académica especializada para tu crecimiento profesional</p>
+        </div>
+        
+        <div class="postgrados-grid">
+            <!-- Postgrado 1 - Solo nombre y descripción -->
+            <div class="postgrado-card">
+                <div class="card-header">
+                    <h4>Maestría en Gerencia e Innovación Educativa</h4>
+                </div>
+                <div class="card-body">
+                    <p>Formación especializada en gerencia e innovación de procesos educativos para profesionales del sector educativo.</p>
+                </div>
+            </div>
+            
+            <!-- Postgrado 2 -->
+            <div class="postgrado-card">
+                <div class="card-header">
+                    <h4>Maestría en Gerencia de Empresas</h4>
+                </div>
+                <div class="card-body">
+                    <p>Desarrollo de competencias gerenciales para la dirección eficiente de organizaciones empresariales en entornos competitivos.</p>
+                </div>
+            </div>
+            
+            <!-- Postgrado 3 -->
+            <div class="postgrado-card">
+                <div class="card-header">
+                    <h4>Maestría en Gerencia en Telecomunicaciones</h4>
+                </div>
+                <div class="card-body">
+                    <p>Especialización en la gestión de proyectos y sistemas de telecomunicaciones avanzados para el sector tecnológico.</p>
+                </div>
+            </div>
+            
+            <!-- Postgrado 4 -->
+            <div class="postgrado-card">
+                <div class="card-header">
+                    <h4>Maestría en Gestión del Talento Humano</h4>
+                </div>
+                <div class="card-body">
+                    <p>Formación en estrategias modernas para la gestión y desarrollo del capital humano organizacional.</p>
+                </div>
+            </div>
+            
+            <!-- Postgrado 5 -->
+            <div class="postgrado-card">
+                <div class="card-header">
+                    <h4>Especialización en Gerencia Tributaria</h4>
+                </div>
+                <div class="card-body">
+                    <p>Especialización en normativa tributaria y gestión fiscal para profesionales del área contable y legal.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contactos -->
+        <div class="contactos-section">
+            <div class="contacto-card">
+                <h4><i class="fas fa-phone-alt"></i> Contactos Generales</h4>
+                <ul class="contacto-info">
+                    <li><i class="fas fa-phone"></i> <span>0412-6842016</span></li>
+                    <li><i class="fas fa-envelope"></i> <span>info@ujgh.edu.ve</span></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span>Avenida Delicias, Calle 89B, Maracaibo, Zulia</span></li>
+                    <li><i class="fas fa-clock"></i> <span>Horario: De 8:00 a.m a 4:00 p.m</span></li>
+                </ul>
+            </div>
+            
+            <div class="contacto-card">
+                <h4><i class="fas fa-headset"></i> Soporte Técnico</h4>
+                <ul class="contacto-info">
+                    <li><i class="fas fa-phone"></i> <span>0424-6773874</span></li>
+                    <li><i class="fas fa-envelope"></i> <span>handryperozo650@ujgh.edu.ve</span></li>
+                    <li><i class="fas fa-info-circle"></i> <span>Asistencia técnica para la plataforma</span></li>
+                    <li><i class="fas fa-life-ring"></i> <span>Soporte para problemas de acceso</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer simplificado -->
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; 2026 Universidad Dr. José Gregorio Hernández - Todos los derechos reservados</p>
+            <p style="margin-top: 5px;">Decanato de Investigación y Postgrado | Sistema de Gestión Académica v1.0</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animación suave para los enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Efecto de aparición para las tarjetas
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Aplicar a las tarjetas de postgrados y objetivos
+        document.querySelectorAll('.postgrado-card, .objetivo-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // Aplicar a las tarjetas de visión y misión
+        document.querySelectorAll('.vision-card, .mision-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
